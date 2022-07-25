@@ -5,7 +5,14 @@ Created on Mon Jul 25 10:10:23 2022
 Stick in the pile
 @author: sivamokedissook
 """
+import random
 
+def AiPlay(remainStick):
+    if remainStick >= 2:
+        return random.randrange(1,2)
+    else:
+        return 1
+    
 
 name=input("what is your name?")
 nstick=int(input("how many stick in the pile?"))
@@ -28,6 +35,13 @@ while nstick > 0 :
     nstick = nstick - tstick
     loop_count += 1
     if nstick == 0:
+      print("YOU LOSE")  
+      break
+    aiStick = AiPlay(nstick)
+    print("Ai is taking", aiStick, "from the pile")
+    nstick = nstick - aiStick
+    if nstick == 0:
+      print("YOU WIN")  
       break
     print("there are", nstick, "sticks in the pile.")
     continue
